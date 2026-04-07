@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Windows Performance Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            600: '#0078d4', // Windows Blue
+                            700: '#005a9e',
+                            800: '#004578',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .prose-section {
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            padding-bottom: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .dark .prose-section {
+            border-bottom-color: rgba(51, 65, 85, 0.5);
+        }
+
+        kbd {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 0.8rem;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+        }
+
+        .dark kbd {
+            background: #334155;
+            border-color: #475569;
+            color: #f1f5f9;
+        }
+
+        #progress-bar {
+            height: 4px;
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-200 antialiased transition-colors duration-300">
+
+    <!-- Progress Top Bar -->
+    <div class="fixed top-0 left-0 w-full z-[100] bg-slate-100 dark:bg-slate-900">
+        <div id="progress-bar" class="bg-brand-600"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 mt-16 mb-20">
+        
+        <!-- Main Content -->
+        <main>
+            <div id="intro" class="mb-12">
+                <div class="flex items-center gap-2 text-brand-600 text-sm font-semibold mb-2">
+                    <i class="fas fa-bolt"></i> Performance Optimization
+                </div>
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-slate-900 dark:text-white leading-tight">Maximize Windows Performance: Official Protocol</h1>
+                <div class="flex items-center gap-4 text-sm text-slate-500 mb-8 pb-8 border-b border-slate-100 dark:border-slate-800">
+                    <span class="flex items-center gap-1"><i class="far fa-calendar"></i> Updated: April 2024</span>
+                    <span class="flex items-center gap-1"><i class="far fa-clock"></i> 8 min read</span>
+                    <span class="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 px-2 py-0.5 rounded text-xs font-bold">Verified</span>
+                </div>
+                <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                    This guide provides the official sequence of actions to optimize Windows system speed, clear diagnostic overhead, and repair underlying system image issues.
+                </p>
+            </div>
+
+            <!-- Step 1 -->
+            <section id="step1" class="prose-section">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                    <span class="text-slate-300 dark:text-slate-700 font-mono">01</span>
+                    Local Cache Purge
+                </h2>
+                <p class="mb-6">System performance can degrade as temporary application logs and prefetch data accumulate. Use the Run utility to access these repositories.</p>
+                
+                <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="p-2 bg-white dark:bg-slate-800 rounded shadow-sm"><i class="fas fa-keyboard text-brand-600"></i></div>
+                        <div>
+                            <p class="font-semibold mb-1">Execution Command</p>
+                            <p class="text-sm">Press <kbd>Win</kbd> + <kbd>R</kbd> and execute the following strings one by one:</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="p-3 bg-white dark:bg-slate-800 rounded border border-slate-100 dark:border-slate-700 font-mono text-sm">temp</div>
+                        <div class="p-3 bg-white dark:bg-slate-800 rounded border border-slate-100 dark:border-slate-700 font-mono text-sm">%temp%</div>
+                        <div class="p-3 bg-white dark:bg-slate-800 rounded border border-slate-100 dark:border-slate-700 font-mono text-sm">prefetch</div>
+                        <div class="p-3 bg-white dark:bg-slate-800 rounded border border-slate-100 dark:border-slate-700 font-mono text-sm">recent</div>
+                    </div>
+                    <div class="p-3 bg-amber-50 dark:bg-amber-900/20 rounded-lg text-xs text-amber-700 dark:text-amber-400 border border-amber-100 dark:border-amber-800 flex gap-2">
+                        <i class="fas fa-exclamation-circle mt-0.5"></i>
+                        <span>System files currently in use cannot be deleted. If prompted, select "Skip" to proceed with the remaining items.</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 2 -->
+            <section id="step2" class="prose-section">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                    <span class="text-slate-300 dark:text-slate-700 font-mono">02</span>
+                    Advanced Terminal Operations
+                </h2>
+                <p class="mb-6">Using the elevated command interface allows for deep system auditing and automated software updates.</p>
+                
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-brand-600 to-indigo-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                    <div class="relative bg-slate-950 rounded-lg overflow-hidden border border-slate-800 shadow-2xl">
+                        <div class="flex items-center justify-between px-4 py-2 bg-slate-900 border-b border-slate-800">
+                            <div class="flex gap-1.5">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <span class="text-[10px] text-slate-500 font-mono tracking-widest uppercase">PowerShell Elevated</span>
+                            <button onclick="copyCommands()" class="text-slate-400 hover:text-white transition-colors">
+                                <i id="copy-icon" class="far fa-copy text-xs"></i>
+                            </button>
+                        </div>
+                        <pre class="p-6 overflow-x-auto text-sm text-blue-400 font-mono leading-relaxed"><span class="text-slate-500"># Upgrade all packages, scan health, and cleanup</span>
+winget upgrade --all
+sfc /scannow
+DISM /Online /Cleanup-Image /RestoreHealth
+cleanmgr
+mrt
+chkdsk /f /r</pre>
+                    </div>
+                </div>
+                <p class="mt-4 text-sm text-slate-500 flex items-center gap-2">
+                    <kbd>Win</kbd> + <kbd>X</kbd> followed by <kbd>A</kbd> is the standard shortcut to open the Administrative Terminal.
+                </p>
+            </section>
+
+            <!-- Step 3 -->
+            <section id="step3" class="prose-section">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                    <span class="text-slate-300 dark:text-slate-700 font-mono">03</span>
+                    Security Integrity Scan
+                </h2>
+                <div class="flex flex-col md:flex-row gap-6 items-start">
+                    <div class="flex-1">
+                        <p class="mb-4 text-slate-600 dark:text-slate-400">Malware often consumes high CPU resources in the background. A dedicated scan ensures your performance gains aren't being offset by unauthorized processes.</p>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3 text-sm">
+                                <i class="fas fa-check-circle text-brand-600"></i>
+                                <span>Navigate to <strong>Windows Security</strong> via search</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm">
+                                <i class="fas fa-check-circle text-brand-600"></i>
+                                <span>Select <strong>Virus & threat protection</strong></span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm">
+                                <i class="fas fa-check-circle text-brand-600"></i>
+                                <span>Execute an <strong>Administrator-level Scan</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-48 aspect-square bg-slate-100 dark:bg-slate-900 rounded-2xl flex flex-col items-center justify-center border border-dashed border-slate-300 dark:border-slate-700">
+                        <i class="fas fa-user-shield text-4xl text-brand-600 mb-2"></i>
+                        <span class="text-[10px] font-bold text-slate-400 tracking-tighter">ADMIN REQUIRED</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 4 -->
+            <section id="step4" class="prose-section">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                    <span class="text-slate-300 dark:text-slate-700 font-mono">04</span>
+                    Storage Sense Optimization
+                </h2>
+                <p class="mb-6">Windows modern settings interface provides a specialized cleanup tool for system upgrades and temporary file residues.</p>
+                <div class="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-2xl border border-indigo-100 dark:border-indigo-800">
+                    <div class="flex gap-4">
+                        <div class="hidden sm:block">
+                            <div class="w-12 h-12 bg-white dark:bg-slate-800 rounded-xl flex items-center justify-center shadow-sm">
+                                <i class="fas fa-folder-open text-indigo-600"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold text-indigo-900 dark:text-indigo-300 mb-2 uppercase tracking-wide">Configuration Path</p>
+                            <p class="font-mono text-sm mb-4">Settings > System > Storage > Temporary files</p>
+                            <div class="flex items-center gap-3 p-3 bg-white/50 dark:bg-slate-900/50 rounded-lg">
+                                <i class="fas fa-info-circle text-indigo-600"></i>
+                                <span class="text-sm italic text-slate-600 dark:text-slate-400">Important: Select all telemetry and cache files, but <strong>uncheck "Downloads"</strong> to preserve user data.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 5 -->
+            <section id="step5" class="pb-10">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                    <span class="text-slate-300 dark:text-slate-700 font-mono">05</span>
+                    Finalization & Hardware Reset
+                </h2>
+                <div class="bg-slate-900 text-white p-8 rounded-3xl text-center relative overflow-hidden shadow-2xl">
+                    <!-- Background Glow -->
+                    <div class="absolute -top-24 -left-24 w-64 h-64 bg-brand-600/20 rounded-full blur-3xl"></div>
+                    <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-indigo-600/20 rounded-full blur-3xl"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 bg-brand-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-brand-600/50">
+                            <i class="fas fa-power-off text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Restart Required</h3>
+                        <p class="text-slate-400 mb-8 max-w-md mx-auto">Clicking 'Restart' clears the RAM, finalizes registry changes, and resets active system timers.</p>
+                        <button onclick="window.location.reload()" class="bg-white text-slate-950 hover:bg-slate-200 px-8 py-3 rounded-full font-bold transition-all transform hover:scale-105 active:scale-95 shadow-xl">Restart System</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Copy functionality
+        async function copyCommands() {
+            const commands = `winget upgrade --all\nsfc /scannow\nDISM /Online /Cleanup-Image /RestoreHealth\ncleanmgr\nmrt\nchkdsk /f /r`;
+            const icon = document.getElementById('copy-icon');
+            
+            try {
+                const textarea = document.createElement('textarea');
+                textarea.value = commands;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+
+                icon.classList.remove('far', 'fa-copy');
+                icon.classList.add('fas', 'fa-check', 'text-green-500');
+                
+                setTimeout(() => {
+                    icon.classList.remove('fas', 'fa-check', 'text-green-500');
+                    icon.classList.add('far', 'fa-copy');
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy', err);
+            }
+        }
+
+        // Reading progress scroll effect
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        });
+    </script>
+</body>
+</html>
